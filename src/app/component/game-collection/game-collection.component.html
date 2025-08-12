@@ -1,0 +1,35 @@
+<section class="jarallax">
+    <img src="assets/images/background/3.webp" class="jarallax-img" alt="">
+    <div class="de-gradient-edge-top"></div>
+    <div class="de-gradient-edge-bottom"></div>
+    <div class="container z-1000">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="subtitle fadeInUp mb-3">Most complete</div>
+                <h2 class="fadeInUp mb20" data-aos="fade-up" data-aos-delay="200">Game Collection</h2>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+                <a appBtnMainHover class="btn-main mb-sm-30" routerLink="/game-server-1"><span>View all games</span></a>
+            </div>
+        </div>
+
+        <div class="row g-4 sequence">
+            <div class="col-lg-3 col-md-6 gallery-item" *ngFor="let game of games" data-aos="fade-up">
+                <div class="de-item">
+                    <div class="d-overlay">
+                        <div class="d-label">
+                            20% OFF
+                        </div>
+                        <div class="d-text">
+                            <h4>{{ game.title }}</h4>
+                            <p class="d-price">Starting at <span class="price">{{ game.price | currency }}</span></p>
+                            <a appBtnMainHover class="btn-main btn-fullwidth" [href]="game.orderLink"><span>Order Now</span></a>
+                        </div>
+                    </div>
+                    <img [src]="game.image" class="img-fluid" alt="{{ game.title }}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

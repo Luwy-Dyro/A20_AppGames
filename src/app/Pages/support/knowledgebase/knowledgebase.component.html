@@ -1,0 +1,61 @@
+<section id="subheader" class="jarallax">
+    <div class="de-gradient-edge-bottom"></div>
+    <img src="assets/images/background/space.webp" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row">
+            <div class="col-lg-12 mb-3 text-center">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Information center</div>
+                <h2 class="fadeInUp mb-3" data-aos="fade-up" data-aos-delay="200">Knowledgebase</h2>
+            </div>
+
+            <div class="col-md-8 offset-md-2 text-center">
+                <form action='#' class="row" data-aos="fade-up" data-aos-delay="200" id='form_sb' method="post" name="form_sb">
+                    <div class="col">
+                        <div class="spacer-10"></div>
+                        <input class="form-control" id='domain_name' name='domain_name' placeholder="type your questions here" type='text'> <a id="btn-submit" href="javascript:;" onclick="document.getElementById('form_sb').submit();"><i class="arrow_right"></i></a>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+                <div class="spacer-20"></div>
+                <p class="d-small">*eg. server setup, change hosting plan</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section close -->
+
+<section class="no-top">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Dynamic Category List -->
+            <div *ngFor="let category of categories" class="col-lg-4 col-md-6">
+                <div class="de-box-cat h-100">
+                    <i class="fa fa-folder-open-o"></i>
+                    <a [href]="category.link">
+                        <h3>{{ category.title }} <span>({{ category.count }})</span></h3>
+                    </a>
+                    <div class="d-subtitle">{{ category.subtitle }}</div>
+                </div>
+            </div>
+
+            <!-- Static Section -->
+            <div class="spacer-double"></div>
+            <div class="col-lg-12">
+                <div class="padding40 rounded-10" [style.backgroundColor]="'rgba(255, 255, 255, 0.1)'">
+                    <div class="row align-items-center">
+                        <div class="col-lg-1">
+                            <img src="assets/images/icons/4.png" alt="" class="img-responsive">
+                        </div>
+                        <div class="col-lg-9">
+                            <h4>Cannot find answer? Contact our customer support now.</h4>
+                        </div>
+                        <div class="col-lg-2 text-lg-end">
+                            <a appBtnMainHover class="btn-main" href="javascript:void(0);"><span>Contact Us</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

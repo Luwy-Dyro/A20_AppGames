@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Api - JsonServer</div>
+            <h2 class="fadeInUp mb20" data-aos="fade-up" data-aos-delay="200">Any questions?</h2>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-lg-6">
+            <div class="accordion s2 fadeInUp">
+                <div class="accordion-section" *ngFor="let accordion of accordionsLeft; let i = index">
+                    <div class="accordion-section-title" [ngClass]="{ active: activeAccordion === i }" (click)="toggleAccordion(i)">
+                        {{ accordion.title }}
+                    </div>
+                    <div class="accordion-section-content" [ngStyle]="{ display: activeAccordion === i ? 'block' : 'none' }" *ngIf="activeAccordion === i">
+                        <p>{{ accordion.content }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="accordion s2 fadeInUp">
+                <div class="accordion-section" *ngFor="let accordion of accordionsRight; let i = index">
+                    <div class="accordion-section-title" [ngClass]="{ active: activeAccordionRight === i }" (click)="toggleAccordionRight(i)">
+                        {{ accordion.title }}
+                    </div>
+                    <div class="accordion-section-content" [ngStyle]="{ display: activeAccordionRight === i ? 'block' : 'none' }" *ngIf="activeAccordionRight === i">
+                        <p>{{ accordion.content }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

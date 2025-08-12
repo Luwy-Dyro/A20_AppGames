@@ -1,0 +1,133 @@
+<header [ngClass]="headerClass" [style.height]="headerHeight">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="de-flex sm-pt10">
+                    <div class="de-flex-col">
+                        <div class="de-flex-col">
+                            <!-- logo begin -->
+                            <div id="logo">
+                                <a routerLink="/" alt="Home">
+                                    <img class="logo-main" src="https://luwydev.com/_next/static/media/logo_LD.199c47f2.svg" alt="">
+                                    <img class="logo-main" src="https://luwydev.com/_next/static/media/logo_luwydyro.07b1498c.svg" alt="">
+                                    <img class="logo-mobile" src="https://luwydev.com/_next/static/media/logo_LD.199c47f2.svg" alt="">
+                                </a>
+                            </div>
+                            <!-- logo close -->
+                        </div>
+                    </div>
+                    <div class="de-flex-col header-col-mid">
+                        <!-- header.component.html -->
+                        <ul id="mainmenu">
+                            
+                            <li data-menu-id="home">
+                                <a class="menu-item" [routerLink]="['/']" 
+                                    [class.active]="isMenuItemActive('home')">
+                                    Home
+                                </a>
+                                
+                         
+                            </li>
+
+                            <!-- Game Servers Menu -->
+                            <li data-menu-id="gameservers">
+                                <a class="menu-item" href="javascript:void(0);"
+                                    (click)="navigateToRoute('/game-server-2', $event)"
+                                    [class.active]="isMenuItemActive('gameservers')">
+                                    Game Collection
+                                    
+                                </a>
+
+                                <!-- <ul [style.height]="getDropdownHeight('gameservers')"
+                                    [style.overflow]="isMenuItemActive('gameservers') ? 'visible' : 'hidden'"
+                                    [style.display]="isMenuItemActive('gameservers') ? 'block' : 'none'">
+                                    <li><a class="menu-item" (click)="navigateToRoute('/game-server-1', $event)">Games
+                                            Server One</a></li>
+                                    <li><a class="menu-item" (click)="navigateToRoute('/game-server-2', $event)">Games
+                                            Server Two</a></li>
+                                    <li><a class="menu-item"
+                                            (click)="navigateToRoute('/pricing-table-one', $event)">Pricing Table
+                                            One</a></li>
+                                    <li><a class="menu-item"
+                                            (click)="navigateToRoute('/pricing-table-two', $event)">Pricing Table
+                                            Two</a></li>
+                                    <li><a class="menu-item"
+                                            (click)="navigateToRoute('/pricing-table-three', $event)">Pricing Table
+                                            Three</a></li>
+                                    <li><a class="menu-item new"
+                                            (click)="navigateToRoute('/pricing-table-four', $event)">Pricing Table
+                                            Four</a></li>
+                                </ul> -->
+                            </li>
+
+                            <!-- Support Menu -->
+                            <li data-menu-id="support">
+                                <a class="menu-item" href="javascript:void(0);"
+                                    (click)="toggleDropdown('support', $event)"
+                                    [class.active]="isMenuItemActive('support')">
+                                    Support
+                                    <span *ngIf="isMenuItemActive('support')" class="active"></span>
+                                </a>
+                                <span></span>
+                                <ul [style.height]="getDropdownHeight('support')"
+                                    [style.overflow]="isMenuItemActive('support') ? 'visible' : 'hidden'"
+                                    [style.display]="isMenuItemActive('support') ? 'block' : 'none'">
+                                    <!-- <li><a class="menu-item"
+                                            (click)="navigateToRoute('/knowledgebase', $event)">Knowledgebase</a></li>
+                                  -->
+                                    <li><a class="menu-item" (click)="navigateToRoute('/contact', $event)">Contact</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+              
+                            <!-- More Pages Menu -->
+                            <li data-menu-id="morepages">
+                                <a class="menu-item" href="javascript:void(0);"
+                                    (click)="toggleDropdown('morepages', $event)"
+                                    [class.active]="isMenuItemActive('morepages')">
+                                    Access
+                                    <span *ngIf="isMenuItemActive('morepages')" class="active"></span>
+                                </a>
+                                <span></span>
+                                <ul [style.height]="getDropdownHeight('morepages')"
+                                    [style.overflow]="isMenuItemActive('morepages') ? 'visible' : 'hidden'"
+                                    [style.display]="isMenuItemActive('morepages') ? 'block' : 'none'">
+                                    <li>
+                                        <!-- <a class="menu-item" (click)="navigateToRoute('/login', $event)"> -->
+                                        <a class="menu-item"
+                                         (click)="authLogin.login()">
+                                            Login
+                                        </a>
+                                        
+                                        </li>
+                                         
+                                    <li>
+                                        <!-- <a class="menu-item" (click)="navigateToRoute('/login', $event)"> -->
+                                        <a class="menu-item"
+                                         (click)="authLogin.logout()">
+                                            Salir
+                                        </a>
+                                        
+                                        </li>
+                                    <!-- <li><a class="menu-item" (click)="navigateToRoute('/register', $event)">Register</a>
+                                    </li> -->
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="de-flex-col">
+                        <div class="menu_side_area">
+                            <a (click)="authLogin.login()" appBtnMainHover class="btn-main btn-line" role="button"
+                            data-hover="Authentification"
+                            >
+                                <span>Auth0 -  LogIn</span>
+                            </a>
+                            <span id="menu-btn" [class.menu-open]="isMenuOpen" (click)="toggleMenu()"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

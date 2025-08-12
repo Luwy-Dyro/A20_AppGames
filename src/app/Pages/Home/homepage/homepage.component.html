@@ -1,0 +1,197 @@
+<section class="no-top no-bottom sm-pt100  position-relative z-1000 jarallax" data-jarallax data-speed="0.5">
+    <img src="assets/images/background/7.webp" class="jarallax-img" alt="">
+    <div class="de-gradient-edge-bottom"></div>
+    <div class="v-center">
+        <div id="swiper" class="swiper" #grabCursor>
+            <div class="swiper-wrapper">
+                <div *ngFor="let slide of slides" class="swiper-slide no-bg">
+                    <div class="swiper-inner">
+                        <div class="sw-caption">
+                            <div class="container">
+                                <div class="row gx-4 align-items-center">
+                                    <div class="spacer-single"></div>
+                                    <div class="col-lg-5 mb-sm-30">
+                                        <div class="subtitle blink mb-4" data-aos="fade-up">{{ slide.subtitle }}</div>
+                                        <h1 class="slider-title s2 text-uppercase mb-1" data-aos="fade-up">{{ slide.title }}</h1>
+                                        <p class="slider-text" data-aos="fade-up">{{ slide.text }}</p>
+                                        <div class="spacer-10"></div>
+                                        <a appBtnMainHover role="button" class="btn-main mb10" (click)="authLogin.login()"><span>{{ slide.buttonText }}</span></a>
+                                    </div>
+                                    <div class="col-lg-7" data-aos="flip-left" data-aos-duration="5000">
+                                        <img [src]="slide.image" class="img-fluid sw-image" alt="{{ slide.title }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="no-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">API - Json Server</div>
+                <h2 class="fadeInUp mb20" data-aos="fade-up" data-aos-delay="200"><span class="text-gradient">Premium</span> Game Server</h2>
+            </div>
+
+            <div class="col-lg-6"></div>
+
+            <div *ngFor="let feature of features" class="col-lg-3 col-md-6 mb-sm-20 fadeInRight" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <img [src]="feature.image" class="mb20" alt="">
+                    <h4>{{ feature.title }}</h4>
+                    <p>{{ feature.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="jarallax">
+    <img src="assets/images/background/9.webp" class="jarallax-img" alt="">
+    <div class="de-gradient-edge-top"></div>
+    <div class="de-gradient-edge-bottom"></div>
+    <div class="container z-1000">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">API REST - Rawg.io</div>
+                <h2 class="fadeInUp mb20" data-aos="fade-up" data-aos-delay="200">Popularity <span class="text-gradient">2025</span></h2>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+                <a appBtnMainHover class="btn-main mb-sm-30" routerLink="/game-server-1"><span>View all games</span></a>
+            </div>
+        </div>
+
+        @let status = gamesAPi.status();
+
+        @if (gamesAPi.isLoading()) {
+             <app-spinner />
+        }
+
+        @if (status === 'error') {
+        <div class="alert alert-danger my-4">
+            Ocurrió un problema al cargar los juegos.
+            <div class="small opacity-75">{{ gamesAPi.error()?.message }}</div>
+            <button class="btn btn-sm btn-outline-light mt-2" (click)="gamesAPi.reload()">Reintentar</button>
+        </div>
+        }
+        <div class="row g-4 sequence">
+            @for (game of (gamesAPi.value()?.results ?? []).slice(0, 18); track $index ) {
+         
+                <div class="col-lg-4 col-md-3 gallery-item">
+                    <div class="de-item mh-220" data-aos="fade-up">
+                        <div class="d-overlay">
+                            <div class="d-label">
+                            Rating: {{game.rating_top}}
+                            </div>
+                            <div class="d-text">
+                                <h4>{{ game.name }}</h4>
+                                <p class="d-price">Date:  <span class="price">{{ game.updated }}</span></p>
+                                <div class="d-flex  justify-content-between ">
+
+                                    <a appBtnMainHover class="btn-main " [routerLink]="['/pricing-table-one', game.slug]"><span>Details</span></a>
+                                    <a appBtnMainHover class="btn-main " [routerLink]="['/shop']"><span>Order Now</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <img [src]="game.background_image" class="img-fluid" [alt]="game.name">
+                    </div>
+                </div>
+            }@empty {
+                <p>No hay Itema</p>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="no-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="padding60 sm-padding40 sm-p-2 jarallax position-relative">
+                    <img src="assets/images/background/8.webp" class="jarallax-img" alt="">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="subtitle fadeInUp mb-3" data-aos="fade-up">API REST - Rawg.io</div>
+                            <h2 class="fadeInUp" data-aos="fade-up" data-aos-delay="200"><span class="text-gradient">Unlock</span> Your Gaming Full Potential</h2>
+                            <p class="fadeInUp" data-aos="fade-up">Explore thousands of games for all consoles in one place. Find the latest releases, timeless classics, and exclusive deals. Discover your next favorite game today.</p>
+                            <div class="spacer-10"></div>
+                            <a appBtnMainHover class="btn-main mb10 fadeInUp" data-aos="fade-up" (click)="authLogin.login()" ><span>Order Your Game Server Now</span></a>
+                        </div>
+                    </div>
+
+                    <img src="assets/images/misc/avatar.webp" class="sm-hide position-absolute bottom-0 end-0 fadeIn" data-aos="fade-in" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="no-bottom">
+    <div class="container">
+        <div class="row align-items-center gx-5">
+            <div class="col-lg-6">
+                <img src="assets/images/misc/server.webp" class="img-fluid mb-sm-30 fadeIn" data-aos="fade-in" alt="">
+            </div>
+
+            <div class="col-lg-6">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Server locations</div>
+                <h2 class="fadeInUp" data-aos="fade-up" data-aos-delay="200"><span class="text-gradient">25</span> servers available worldwide for your game.</h2>
+                <p class="fadeInUp" data-aos="fade-up">Our collection of game server hosting options encompasses the most in-demand platforms of today. Within our offerings, you'll discover an extensive array of specialized tools and features tailored to each game, all of which we diligently keep up to date in sync with game and mod updates.</p>
+
+                <ul class="de-server s2 fadeInUp" data-aos="fade-up">
+                    <li>London, England</li>
+                    <li>Paris, France</li>
+                    <li>Frankut, Germany</li>
+                    <li>Amsterdam, Netherlands</li>
+                    <li>Stockholm, Sweden</li>
+                    <li>Helsinki, Finland</li>
+                    <li>Los Angeles, USA</li>
+                    <li>>View all available servers</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="no-top no-bottom">
+    <app-questions></app-questions>
+</section>
+<section class="no-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="padding60 sm-padding40 jarallax position-relative">
+                    <img src="assets/images/background/7.webp" class="jarallax-img" alt="">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Api - JsonServer</div>
+                            <h2 class="fadeInUp" data-aos="fade-up" data-aos-delay="200"><span class="text-gradient">Manage</span> your server from mobile device</h2>
+                            <p>Now you will have your application to manage your games.</p>
+                            <a><img src="assets/images/misc/download-appstore.webp" class="img-fluid mb-sm-20" alt="download"></a>&nbsp;
+                            <a><img src="assets/images/misc/download-playstore.webp" class="img-fluid mb-sm-20" alt="download"></a>
+                        </div>
+                    </div>
+
+                    <img src="assets/images/misc/man-with-phone.webp" class="sm-hide position-absolute bottom-0 end-0 fadeIn" data-aos="fade-in" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

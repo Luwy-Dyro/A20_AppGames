@@ -1,0 +1,96 @@
+<section class="jarallax">
+    <img src="assets/images/background/galactic-oddsey.webp" class="jarallax-img" alt="">
+    <div class="de-gradient-edge-top"></div>
+    <div class="de-gradient-edge-bottom"></div>
+    <div class="container z-1000">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Server Hosting</div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fadeInUp" data-aos="fade-up" data-aos-delay="200">Galactic Odyssey</h2>
+                <div class="spacer-20"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div *ngFor="let plan of plans; let i = index" class="col-lg-4 mb-sm-30 fadeInRight" [attr.data-aos-delay]="(i + 1) * 200" data-aos="fade-up">
+                <div class="de-pricing-plan h-100" [ngClass]="{'d-feature': plan.isTopSeller}">
+                    <div *ngIf="plan.isTopSeller" class="d-badge">Top Seller</div>
+                    <div class="d-title">{{ plan.title }}</div>
+                    <div class="d-stars">
+                        <i class="fa fa-star" *ngFor="let star of [].constructor(plan.stars)"></i>
+                    </div>
+                    <div class="spacer-20"></div>
+                    <div class="d-specs">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="d-item">
+                                    {{ plan.slots }}<span>Player Slots</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-item">
+                                    {{ plan.memory }}<span>Memory</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer-20"></div>
+                    <div class="d-price">
+                        <span class="d-cur">$</span>
+                        <span class="d-value">{{ plan.price }}</span>
+                        <span class="d-period">/monthly</span>
+                    </div>
+                    <div class="d-sub-price">
+                        ${{ plan.subPricePerSlot }} per slot
+                    </div>
+                    <div class="spacer-20"></div>
+                    <a appBtnMainHover class="btn-main btn-fullwidth" href="javascript:void(0);"><span>Order Now</span></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="spacer-double"></div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Incredibly</div>
+                <h2 class="fadeInUp mb20" data-aos="fade-up" data-aos-delay="200">Features</h2>
+            </div>
+
+            <div class="col-lg-6"></div>
+
+            <div class="row">
+                <div *ngFor="let feature of features; let i = index" class="col-lg-3 col-sm-6 mb-sm-30 fadeInRight" [attr.data-aos-delay]="i * 200" data-aos="fade-up">
+                    <div class="padding30 rounded-10" data-bgimage="rgba(0,0,0,.3)">
+                        <img [src]="feature.icon" class="mb20" alt="">
+                        <h4>{{ feature.title }}</h4>
+                        <p>{{ feature.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="no-top">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Payment Methods</div>
+                <h2 class="fadeInUp" data-aos="fade-up" data-aos-delay="200">We accept</h2>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-4">
+                    <div *ngFor="let payment of payments" class="col-sm-2 col-4">
+                        <div class="p-2 rounded-10" data-bgcolor="rgba(255, 255, 255, .05)">
+                            <img [src]="payment.icon" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

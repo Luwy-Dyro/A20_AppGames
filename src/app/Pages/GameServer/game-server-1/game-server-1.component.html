@@ -1,0 +1,67 @@
+<section class="jarallax">
+    <img src="assets/images/background/3.webp" class="jarallax-img" alt="">
+    <div class="de-gradient-edge-top"></div>
+    <div class="de-gradient-edge-bottom"></div>
+    <div class="container z-1000">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Most complete</div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fadeInUp" data-aos="fade-up" data-aos-delay="200">Game Collection</h2>
+                <div class="spacer-20"></div>
+            </div>
+            <div class="col-lg-6">
+                <ul id="filters" class="float-lg-end float-sm-start fadeInUp">
+                    <li>
+                        <a href="javascript:void(0);" [class.selected]="selectedFilter === '*'" (click)="setFilter('*')">
+                            All Games
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [class.selected]="selectedFilter === '.popular'" (click)="setFilter('.popular')">
+                            Popular
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [class.selected]="selectedFilter === '.fps'" (click)="setFilter('.fps')">
+                            FPS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [class.selected]="selectedFilter === '.survival'" (click)="setFilter('.survival')">
+                            Survival
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [class.selected]="selectedFilter === '.sandbox'" (click)="setFilter('.sandbox')">
+                            Sandbox
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="gallery" class="row g-4">
+            <div *ngFor="let item of items" class="col-lg-3 col-md-6" [ngClass]="item.category" [hidden]="!isItemVisible(item)">
+                <div class="de-item">
+                    <div class="d-overlay">
+                        <div class="d-label">{{item.discount}}</div>
+                        <div class="d-text">
+                            <h4>{{item.title}}</h4>
+                            <p class="d-price">
+                                Starting at
+                                <span class="price">{{item.price}}</span>
+                            </p>
+                            <a appBtnMainHover class="btn-main btn-fullwidth" routerLink="/pricing-table-one"><span>Order Now</span></a>
+                        </div>
+                    </div>
+                    <img [src]="item.image" class="img-fluid" [alt]="item.title">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="no-top">
+    <app-questions></app-questions>
+</section>

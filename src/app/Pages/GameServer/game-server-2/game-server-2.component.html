@@ -1,0 +1,71 @@
+<section id="subheader" class="jarallax pb20">
+    <div class="de-gradient-edge-bottom"></div>
+    <img src="assets/images/background/subheader-game.webp" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row">
+            <div class="col-lg-12 mb-3 text-center">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Most Complete</div>
+                <h2 class="fadeInUp mb-0" data-aos="fade-up" data-aos-delay="200">Game Collection</h2>
+                <hr class="mt20">
+                <ul id="filters">
+                    <li>
+                        <a href="javascript:void(0);" data-filter="*" [ngClass]="{ selected: selectedFilter === '*' }" (click)="applyFilter('*')">
+                            All Games
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" data-filter=".popular" [ngClass]="{ selected: selectedFilter === '.popular' }" (click)="applyFilter('.popular')">
+                            Popular
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" data-filter=".fps" [ngClass]="{ selected: selectedFilter === '.fps' }" (click)="applyFilter('.fps')">
+                            FPS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" data-filter=".survival" [ngClass]="{ selected: selectedFilter === '.survival' }" (click)="applyFilter('.survival')">
+                            Survival
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" data-filter=".sandbox" [ngClass]="{ selected: selectedFilter === '.sandbox' }" (click)="applyFilter('.sandbox')">
+                            Sandbox
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="no-top">
+    <div class="container">
+        <div id="gallery" class="row g-4">
+            <div class="col-lg-4 col-md-6 item" *ngFor="let game of filteredGames" [ngClass]="game.category">
+                <div class="de-item s2">
+                    <div class="d-overlay">
+                        <div class="d-label">20% OFF</div>
+                        <div class="d-text">
+                            <h4>{{ game.name }}</h4>
+                            <div class="de-rating-ext">
+                                <span class="d-stars">
+                                    <i class="fa fa-star" *ngFor="let star of [].constructor(game.stars)"></i>
+                                </span>
+                                <span class="d-val">{{ game.rating }}</span>
+                            </div>
+                            <p class="d-price">
+                                Starting at <span class="price">{{ game.price | currency }}</span>
+                            </p>
+                            <a appBtnMainHover class="btn-main btn-fullwidth" href="{{ game.link }}"><span>Order Now</span></a>
+                        </div>
+                    </div>
+                    <img [src]="game.image" class="img-fluid" [alt]="game.name" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="no-top">
+    <app-questions></app-questions>
+</section>

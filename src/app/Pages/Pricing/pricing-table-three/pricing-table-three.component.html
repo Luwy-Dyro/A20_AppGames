@@ -1,0 +1,128 @@
+<section id="subheader" class="jarallax">
+    <div class="de-gradient-edge-bottom"></div>
+    <img src="assets/images/background/subheader-game.webp" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-2 d-lg-block d-none">
+                <img src="assets/images/covers/4.webp" class="img-fluid fadeInUp" alt="" data-aos="fade-up">
+            </div>
+            <div class="col-lg-6">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Server hosting</div>
+                <h2 class="fadeInUp mb20" data-aos="fade-up" data-aos-delay="200">Funk Dungeon</h2>
+                <div class="de-rating-ext fadeInUp" data-aos="fade-up" data-aos-delay="400">
+                    <span class="d-stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                    </span>
+                    <span class="d-val">4.75</span>
+                    based on <strong>4086</strong> reviews.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section close -->
+
+<section class="no-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center fadeInUp" data-aos="fade-up">
+                <div class="switch-set">
+                    <div>Monthly Plan</div>
+                    <div><input id="sw-1" class="switch" type="checkbox"></div>
+                    <div>Yearly Plan</div>
+                    <div class="spacer-20"></div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <table class="table table-pricing dark-style text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Package</th>
+                            <th scope="col">Player Slots</th>
+                            <th scope="col">Memory</th>
+                            <th scope="col">Server Locations</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Order</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let package of packages">
+                            <th><span class="lbl">Package name</span>{{ package.name }}</th>
+                            <td><span class="lbl">Player Slots</span><i class="fa fa-user id-color"></i> {{ package.playerSlots }} Players</td>
+                            <td><span class="lbl">Memory</span><i class="fa fa-memory id-color"></i> {{ package.memory }} GB</td>
+                            <td class="d-spc">
+                                <span class="lbl">Server Locations</span>
+                                <div class="select-wrap">
+                                    <select class="server_location form-control">
+                                        <option *ngFor="let location of serverLocations" [value]="location" [attr.data-src]="testSrc">
+                                            {{ location }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="d-spc">
+                                <span class="lbl">Price</span>
+                                <span class="opt-1" [ngStyle]="{'display': checkboxChecked ? 'none' : 'inline-block'}">${{ package.price1 }}</span>
+                                <span class="opt-2" [ngStyle]="{'display': checkboxChecked ? 'inline-block' : 'none'}">${{ package.price2 }}</span>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" appBtnMainHover class="btn-main opt-1" [ngStyle]="{'display': checkboxChecked ? 'none' : 'inline-block'}"><span>Order Now</span></a>
+                                <a href="javascript:void(0);" appBtnMainHover class="btn-main opt-2" [ngStyle]="{'display': checkboxChecked ? 'inline-block' : 'none'}"><span>Order Now</span></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="no-top">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Incredibly features</div>
+                <h2 class="fadeInUp mb20" data-aos="fade-up" data-aos-delay="200">Premium Features</h2>
+            </div>
+
+            <div class="col-lg-6"></div>
+
+            <div class="col-lg-3 col-sm-6 fadeInRight" data-aos="fade-up">
+                <div>
+                    <img src="assets/images/icons/1.png" class="mb20" alt="">
+                    <h4>Super Quick Setup</h4>
+                    <p>Dolor minim in pariatur in deserunt laboris eu pariatur labore excepteur cupidatat cupidatat duis dolor in.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 fadeInRight" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <img src="assets/images/icons/2.png" class="mb20" alt="">
+                    <h4>Premium Hardware</h4>
+                    <p>Dolor minim in pariatur in deserunt laboris eu pariatur labore excepteur cupidatat cupidatat duis dolor in.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 fadeInRight" data-aos="fade-up" data-aos-delay="400">
+                <div>
+                    <img src="assets/images/icons/3.png" class="mb20" alt="">
+                    <h4>DDos Protection</h4>
+                    <p>Dolor minim in pariatur in deserunt laboris eu pariatur labore excepteur cupidatat cupidatat duis dolor in.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 fadeInRight" data-aos="fade-up" data-aos-delay="600">
+                <div>
+                    <img src="assets/images/icons/4.png" class="mb20" alt="">
+                    <h4>Fast Support</h4>
+                    <p>Dolor minim in pariatur in deserunt laboris eu pariatur labore excepteur cupidatat cupidatat duis dolor in.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

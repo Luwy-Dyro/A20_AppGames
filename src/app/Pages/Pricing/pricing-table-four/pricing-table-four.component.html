@@ -1,0 +1,116 @@
+<section id="subheader" class="jarallax">
+    <div class="de-gradient-edge-bottom"></div>
+    <img src="assets/images/background/subheader-game-2.webp" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-2 d-lg-block d-none">
+                <img src="assets/images/covers/8.webp" class="img-fluid fadeInUp" alt="" data-aos="fade-up">
+            </div>
+            <div class="col-lg-6">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Server hosting</div>
+                <h2 class="fadeInUp mb20" data-aos="fade-up" data-aos-delay="200">Starborne Oddysey</h2>
+                <div class="de-rating-ext fadeInUp" data-aos="fade-up" data-aos-delay="400">
+                    <span class="d-stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                    </span>
+                    <span class="d-val">4.75</span>
+                    based on <strong>4086</strong> reviews.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section close -->
+
+<section class="no-top">
+    <div class="container">
+
+        <div class="row g-4">
+            <div class="col-lg-12">
+                <h3 class="mb-1">Configure Slots</h3>
+                <p>Enter the number of Slot for your game server</p>
+                <div class="rangeslider-wrap">
+                    <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+                </div>
+            </div>
+
+            <div class="spacer-double"></div>
+
+            <div class="col-lg-12">
+                <h3 class="mb-1">Durations</h3>
+                <p>Choose durations for your game server</p>
+
+                <fieldset class="row g-3" id="choose-duration">
+                    <div class="radio-img-btn col-lg-2 col-md-3 col-sm-4 col-6">
+                        <input type="radio" id="duration-1" name="duration">
+                        <label for="duration-1">
+                            <h3>1 Days</h3>
+                        </label>
+                    </div>
+
+                    <div class="radio-img-btn col-lg-2 col-md-3 col-sm-4 col-6">
+                        <input type="radio" id="duration-2" name="duration">
+                        <label for="duration-2">
+                            <h3>3 Days</h3>
+                        </label>
+                    </div>
+
+                    <div class="radio-img-btn col-lg-2 col-md-3 col-sm-4 col-6">
+                        <input type="radio" id="duration-3" name="duration" checked>
+                        <label for="duration-3">
+                            <h3>7 Days</h3>
+                        </label>
+                    </div>
+
+                    <div class="radio-img-btn col-lg-2 col-md-3 col-sm-4 col-6">
+                        <input type="radio" id="duration-4" name="duration">
+                        <label for="duration-4">
+                            <h3>30 Days</h3>
+                        </label>
+                    </div>
+
+                    <div class="radio-img-btn col-lg-2 col-md-3 col-sm-4 col-6">
+                        <input type="radio" id="duration-5" name="duration">
+                        <label for="duration-5">
+                            <h3>90 Days</h3>
+                        </label>
+                    </div>
+
+                    <div class="radio-img-btn col-lg-2 col-md-3 col-sm-4 col-6">
+                        <input type="radio" id="duration-6" name="duration">
+                        <label for="duration-6">
+                            <h3>365 Days</h3>
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="spacer-single"></div>
+
+            <div class="col-lg-12">
+                <h3 class="mb-1">Available Locations</h3>
+                <p>Choose server location for your game server</p>
+                <fieldset class="row g-3" id="choose-location">
+                    <div *ngFor="let location of locations" class="radio-img-btn col-lg-2 col-md-3 col-sm-4 col-6">
+                        <input type="radio" [id]="'location-' + location.id" name="country-flags">
+                        <label [for]="'location-' + location.id">
+                            <img [src]="'assets/images/flags/' + location.flag" alt="">
+                            <h5>{{ location.name }}</h5>
+                        </label>
+                    </div>
+                </fieldset>
+
+            </div>
+
+            <div class="spacer-half"></div>
+
+            <div class="col-lg-12">
+                <a appBtnMainHover class="btn-main" href="javascript:void(0);"><span>Order Now</span></a>
+            </div>
+        </div>
+    </div>
+</section>

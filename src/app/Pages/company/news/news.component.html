@@ -1,0 +1,53 @@
+<section id="subheader" class="jarallax">
+    <img src="assets/images/background/subheader-news.webp" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Latest From Us</div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fadeInUp mb20" data-aos="fade-up" data-aos-delay="200">News &amp; Promo</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section close -->
+
+<section id="section-content" aria-label="section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 mb10" *ngFor="let post of posts">
+                <div class="bloglist item">
+                    <div class="post-content">
+                        <div class="post-image">
+                            <div class="d-tagline">
+                                <span>{{ post.category }}</span>
+                                <span>{{ post.subcategory }}</span>
+                            </div>
+                            <img alt="" [src]="post.image" class="lazy">
+                        </div>
+                        <div class="post-text">
+                            <div class="d-date">{{ post.date }}</div>
+                            <h4><a [href]="post.link">{{ post.title }}<span></span></a></h4>
+                            <p>{{ post.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spacer-single"></div>
+
+        <div class="col-md-12">
+            <ul class="pagination">
+                <li><a href="javascript:void(0);">Prev</a></li>
+                <li class="active"><a href="javascript:void(0);">1</a></li>
+                <li><a href="javascript:void(0);">2</a></li>
+                <li><a href="javascript:void(0);">3</a></li>
+                <li><a href="javascript:void(0);">4</a></li>
+                <li><a href="javascript:void(0);">5</a></li>
+                <li><a href="javascript:void(0);">Next</a></li>
+            </ul>
+        </div>
+    </div>
+</section>

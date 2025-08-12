@@ -1,0 +1,65 @@
+     @if (gamesResource.isLoading()) {
+             <app-spinner />
+        }
+
+
+<section id="subheader" class="jarallax">
+    <div class="de-gradient-edge-bottom"></div>
+    <img src="assets/images/background/subheader-game.webp" class="jarallax-img" alt="">
+    <div class="container z-1000">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-2 d-lg-block d-none">
+                <img src="assets/images/covers/1.webp" class="img-fluid fadeInUp" data-aos="fade-up" alt="">
+            </div>
+            <div class="col-lg-6">
+                <div class="subtitle fadeInUp mb-3" data-aos="fade-up">Api Rest -  Rawg.io</div>
+                <h2 class="fadeInUp mb20" data-aos="fade-up" data-aos-delay="200">  {{ gamesResource.value()?.name }}
+                    
+                </h2>
+                <div class="de-rating-ext fadeInUp" data-aos="fade-up" data-aos-delay="400">
+                    <span class="d-stars">
+                    @for (star of getStars(gamesResource.value()?.rating ?? 0); track $index ) {
+                        
+                        <i class="fa fa-star"></i>
+                    }
+                    @if ((gamesResource.value()?.rating ?? 0) % 1 >= 0.5  ) {
+                        
+                        <i class="fa fa-star-half"></i>
+                    }
+                    </span>
+                    <span class="d-val"> {{gamesResource.value()?.rating}}</span>
+                    Developer by: <strong>{{gamesResource.value()?.developers?.[0]?.name}}</strong>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 col-12 " bis_skin_checked="1">
+            <div>
+                {{gamesResource.value()?.description_raw}}
+            </div>
+
+        
+        </div>
+
+        <div class=" mt-5 d-flex flex-wrap " bis_skin_checked="1">
+            
+            @for (tags of gamesResource.value()?.tags; track $index ) {
+                   <div class="subtitle fadeInUp mt-2" data-aos="fade-up">
+                 
+                   {{tags.name}}
+                </div>
+               }
+        </div>
+        
+         <div class=" mt-5 d-flex flex-wrap " bis_skin_checked="1">
+            
+             <a appBtnMainHover role="button" class="btn-main mb10" (click)="authLogin.login()"><span>Order your Game Now</span></a>
+            
+        </div>
+        
+    </div>
+</section>
+
+
