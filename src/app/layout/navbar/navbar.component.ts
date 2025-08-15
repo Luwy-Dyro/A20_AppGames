@@ -3,6 +3,7 @@ import { Component, computed, ElementRef, HostListener, inject } from '@angular/
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { AuthloginService } from '../../Service/authlogin.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,9 @@ import { AuthloginService } from '../../Service/authlogin.service';
 })
 export class NavbarComponent {
   authLogin = inject(AuthloginService);
-  
+  isAuthenticated = toSignal(this.authLogin.isAuthenticated$)
+  isLoading = toSignal(this.authLogin.isLoading$)
+
   headerClass: string = 'transparent';
   isMenuOpen: boolean = false;
   isMobile: boolean = false;
