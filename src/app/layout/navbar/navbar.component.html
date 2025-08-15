@@ -160,7 +160,16 @@
                 </div>
 
             }@else if (isAuthenticated()) {
+            
             <div class="menu_side_area">
+              @if (isUser()?.email) {
+                
+                <p class="badge bg-primary text-wrap my-2 fs-6  fw-light">{{isUser()?.email}}</p>
+              }
+
+            </div>
+              <div class="menu_side_area">
+
               <a
                 (click)="authLogin.logout()"
                 appBtnMainHover

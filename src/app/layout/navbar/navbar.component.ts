@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, ElementRef, HostListener, inject } from '@angular/core';
+import { Component, computed, effect, ElementRef, HostListener, inject } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { AuthloginService } from '../../Service/authlogin.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { User } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-navbar',
@@ -13,9 +14,15 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class NavbarComponent {
   authLogin = inject(AuthloginService);
+
+  //Signals
   isAuthenticated = toSignal(this.authLogin.isAuthenticated$)
   isLoading = toSignal(this.authLogin.isLoading$)
+  isUser = toSignal(this.authLogin.user$, {
+    initialValue: undefined as User | undefined,
+  });
 
+    
   headerClass: string = 'transparent';
   isMenuOpen: boolean = false;
   isMobile: boolean = false;
@@ -27,6 +34,12 @@ export class NavbarComponent {
     private router: Router // Add Router injection
   ) {
     this.checkScreenSize();
+
+    // effect( () => {
+    //   const user = this.isUser()
+    //   console.log("aquii",user);
+    // }) 
+    
   }
 
   ngOnInit(): void {
